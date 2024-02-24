@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./web/Dockerfile
+    volumes:
+      - ./prisma:/app/web/prisma
+      - ./web:/app
+    command: "9999999999999999"
+    entrypoint: "sleep"
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - dev_variables.env
+    ports:
+      - "3000:3000"
+    user: "node"
